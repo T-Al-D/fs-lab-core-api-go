@@ -13,5 +13,6 @@ func New() http.Handler {
 	mux.HandleFunc("/health", handlers.Health)
 	mux.HandleFunc("/meta", handlers.Meta)
 
-	return mux
+	/* use the middleware 'wrapper' */
+	return withCORS(mux)
 }
